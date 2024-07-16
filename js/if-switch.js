@@ -15,3 +15,22 @@ if (num === 4) {
 } else {
     console.log('はずれです');
 }
+
+num = Math.floor(Math.random() * 5);
+
+console.log(num);
+
+switch (num) {
+    case 2:
+        console.log('小吉です');
+        break;
+    case 3:
+        console.log('中吉です');
+        break;
+    case 4:
+        console.log('大吉です');
+        break;
+    default:
+        console.log('末吉です');
+        break;
+}
