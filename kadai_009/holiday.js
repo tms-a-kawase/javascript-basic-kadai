@@ -4,6 +4,8 @@ for (let i = 0; i < holidays.length; i++) {
     console.log(holidays[i]);
 }
 
-while (holidays.length > 0) {
-    console.log(holidays.shift());
+let i = 0;
+while (i < holidays.length) {
+    console.log(holidays[i]);
+    i++;
 }
