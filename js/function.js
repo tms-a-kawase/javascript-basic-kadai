@@ -30,3 +30,12 @@ const double = (num) => {
 }
 
 console.log(double(30))
+
+const useVariable = () => {
+
+    const userName = '侍太郎';
+    console.log(userName);
+}
+
+useVariable();
+// console.log(userName);
