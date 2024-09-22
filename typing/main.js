@@ -4,6 +4,8 @@ let typed = '';
 const untypedField = document.getElementById('untyped');
 const typedField = document.getElementById('typed');
 const wrap = document.getElementById('wrap');
+const start = document.getElementById('start');
+const count = document.getElementById('count');
 
 const textLists = [
     'Hello World', 'This is my App', 'How are you?',
@@ -27,15 +29,18 @@ const createText = () => {
     typedField.textContent = typed;
 
     let random = Math.floor(Math.random() * textLists.length);
-    console.log(random);
     untyped = textLists[random];
     untypedField.textContent = untyped;
 };
-createText();
 const keyPress = (e) => {
 
-    if(e.key !== untyped.substring(0,1)){
+    if (e.key !== untyped.substring(0, 1)) {
         wrap.classList.add('mistyped')
+
+        setTimeout(() => {
+            wrap.classList.remove('mistyped')
+        }, 100);
+
         return;
     }
 
@@ -54,9 +59,26 @@ const rankCheck = (score) => {
 };
 
 const gameOver = (id) => {
+    clearInterval(id);
+    console.log('ゲーム終了！')
 };
 
 const timer = () => {
-};
+    let time = count.textContent;
 
-document.addEventListener('keypress', keyPress);
+    const id = setInterval(() => {
+        time--;
+        count.textContent = time;
+        if (time <= 0) {
+            gameOver(id)
+        }
+    }, 1000);
+};
+start.addEventListener('click', () => {
+    timer();
+    createText();
+    start.style.display = 'none';
+    document.addEventListener('keypress', keyPress);
+});
+
+untypedField.textContent = 'スタートボタンで開始';
