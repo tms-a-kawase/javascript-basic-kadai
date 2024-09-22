@@ -81,11 +81,10 @@ const gameOver = (id) => {
 
     setTimeout(() => {
         const result = confirm(rankCheck(score));
+        if (result == true) {
+            window.location.reload();
+        }
     }, 100);
-
-    if (result == true) {
-        window.location.reload();
-    }
 };
 const timer = () => {
 
